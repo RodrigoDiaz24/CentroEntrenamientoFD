@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C4961111-2E17-4791-BAD6-C022B0F4BC88}|CentroEntrenamientoFD.Infrastructure\\CentroEntrenamientoFD.Infrastructure.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.infrastructure\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4961111-2E17-4791-BAD6-C022B0F4BC88}|CentroEntrenamientoFD.Infrastructure\\CentroEntrenamientoFD.Infrastructure.csproj|solutionrelative:centroentrenamientofd.infrastructure\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|solutionrelative:centroentrenamientofd.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|solutionrelative:centroentrenamientofd.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423586E4-8213-4F8F-9362-3D095AAD18D5}|CentroEntrenamientoFD.Domain\\CentroEntrenamientoFD.Domain.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423586E4-8213-4F8F-9362-3D095AAD18D5}|CentroEntrenamientoFD.Domain\\CentroEntrenamientoFD.Domain.csproj|solutionrelative:centroentrenamientofd.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D0759643-1161-4099-B9A9-9155C70C49A6}|CentroEntrenamientoFD.Application\\CentroEntrenamientoFD.Application.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D0759643-1161-4099-B9A9-9155C70C49A6}|CentroEntrenamientoFD.Application\\CentroEntrenamientoFD.Application.csproj|solutionrelative:centroentrenamientofd.application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|c:\\users\\rodrix\\source\\repos\\centroentrenamientobackend\\centroentrenamientofd.api\\centroentrenamientofd.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{56807DA9-E970-4261-881D-0228AE8B2859}|CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.csproj|solutionrelative:centroentrenamientofd.api\\centroentrenamientofd.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\Program.cs",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.API\\Program.cs",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\Program.cs",
+              "RelativeToolTip": "CentroEntrenamientoFD.API\\Program.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T14:53:06.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Application\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.Application\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Application\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "CentroEntrenamientoFD.Application\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T13:40:47.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Infrastructure\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.Infrastructure\\Auth\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Infrastructure\\Auth\\AuthService.cs",
+              "RelativeToolTip": "CentroEntrenamientoFD.Infrastructure\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T13:34:33.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "CentroEntrenamientoFD.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwB4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T15:50:24.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CentroEntrenamientoFD.API.http",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.http",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.http",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.http",
+              "RelativeToolTip": "CentroEntrenamientoFD.API\\CentroEntrenamientoFD.API.http",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-01-27T15:49:02.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "CentroEntrenamientoFD.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Rodrix\\source\\repos\\CentroEntrenamientoBackend\\CentroEntrenamientoFD.API\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "CentroEntrenamientoFD.API\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-27T15:48:22.715Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

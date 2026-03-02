@@ -1,0 +1,11 @@
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\bin\Debug\net9.0\CentroEntrenamientoFD.Domain.deps.json
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\bin\Debug\net9.0\CentroEntrenamientoFD.Domain.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\bin\Debug\net9.0\CentroEntrenamientoFD.Domain.pdb
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.AssemblyInfoInputs.cache
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.AssemblyInfo.cs
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\refint\CentroEntrenamientoFD.Domain.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\CentroEntrenamientoFD.Domain.pdb
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Domain\obj\Debug\net9.0\ref\CentroEntrenamientoFD.Domain.dll

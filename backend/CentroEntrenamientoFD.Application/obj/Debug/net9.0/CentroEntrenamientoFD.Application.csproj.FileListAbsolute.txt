@@ -1,0 +1,15 @@
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\bin\Debug\net9.0\CentroEntrenamientoFD.Application.deps.json
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\bin\Debug\net9.0\CentroEntrenamientoFD.Application.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\bin\Debug\net9.0\CentroEntrenamientoFD.Application.pdb
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\bin\Debug\net9.0\CentroEntrenamientoFD.Domain.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\bin\Debug\net9.0\CentroEntrenamientoFD.Domain.pdb
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.csproj.AssemblyReference.cache
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.AssemblyInfoInputs.cache
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.AssemblyInfo.cs
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.csproj.CoreCompileInputs.cache
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEn.F3DD4532.Up2Date
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\refint\CentroEntrenamientoFD.Application.dll
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\CentroEntrenamientoFD.Application.pdb
+C:\Users\Rodrix\source\repos\CentroEntrenamientoBackend\CentroEntrenamientoFD.Application\obj\Debug\net9.0\ref\CentroEntrenamientoFD.Application.dll
