@@ -27,6 +27,12 @@ namespace CentroEntrenamientoFD.Domain.Entities
 
         public void SetGoogleId(string googleId)
         {
+            if (string.IsNullOrWhiteSpace(googleId))
+                throw new ArgumentException("GoogleId cannot be empty.");
+
+            if (GoogleId != null)
+                throw new InvalidOperationException("Google account already linked.");
+
             GoogleId = googleId;
         }
     }

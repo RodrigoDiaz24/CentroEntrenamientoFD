@@ -8,13 +8,22 @@ namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class Exercise
     {
-        public string Name { get; private set; }
-        public IReadOnlyCollection<Micro> Micros { get; private set; }
+        private readonly List<Micro> _micros = new();
 
-        public Exercise(string name, List<Micro> micros)
+        public string Name { get; private set; } = null!;
+
+        public IReadOnlyCollection<Micro> Micros => _micros;
+
+        private Exercise() { }
+
+        public Exercise(string name)
         {
             Name = name;
-            Micros = micros;
+        }
+
+        public void AddMicro(string value)
+        {
+            _micros.Add(new Micro(value));
         }
     }
 }

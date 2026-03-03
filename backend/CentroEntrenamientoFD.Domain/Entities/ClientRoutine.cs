@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class ClientRoutine
     {
+        private readonly List<MobilityExercise> _mobility = new();
+        private readonly List<RoutineDay> _days = new();
+
         public Guid Id { get; private set; }
         public DateTime Date { get; private set; }
         public string ClientName { get; private set; }
@@ -18,19 +22,24 @@ namespace CentroEntrenamientoFD.Domain.Entities
 
         private ClientRoutine() { }
 
-        public ClientRoutine(
-            DateTime date,
-            string clientName,
-            string objective,
-            List<MobilityExercise> mobility,
-            List<RoutineDay> days)
+        public ClientRoutine(DateTime date, string clientName, string objective)
         {
             Id = Guid.NewGuid();
             Date = date;
             ClientName = clientName;
             Objective = objective;
-            Mobility = mobility;
-            Days = days;
+        }
+
+        public void AddMobilityExercise(string name)
+        {
+            _mobility.Add(new MobilityExercise(name));
+        }
+
+        public RoutineDay AddRoutineDay(int dayNumber)
+        {
+            var day = new RoutineDay(dayNumber);
+            _days.Add(day);
+            return day;
         }
     }
 }

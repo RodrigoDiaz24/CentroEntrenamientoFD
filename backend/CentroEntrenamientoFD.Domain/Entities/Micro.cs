@@ -8,7 +8,9 @@ namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class Micro
     {
-        public string Value { get; private set; }
+        public string Value { get; private set; } = null!;
+
+        private Micro() { }
 
         public Micro(string value)
         {

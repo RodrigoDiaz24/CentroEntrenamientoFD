@@ -8,13 +8,24 @@ namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class RoutineDay
     {
-        public int DayNumber { get; private set; }
-        public IReadOnlyCollection<Exercise> Exercises { get; private set; }
+        private readonly List<Exercise> _exercises = new();
 
-        public RoutineDay(int dayNumber, List<Exercise> exercises)
+        public int DayNumber { get; private set; }
+
+        public IReadOnlyCollection<Exercise> Exercises => _exercises;
+
+        private RoutineDay() { }
+
+        public RoutineDay(int dayNumber)
         {
             DayNumber = dayNumber;
-            Exercises = exercises;
+        }
+
+        public Exercise AddExercise(string name)
+        {
+            var exercise = new Exercise(name);
+            _exercises.Add(exercise);
+            return exercise;
         }
     }
 }

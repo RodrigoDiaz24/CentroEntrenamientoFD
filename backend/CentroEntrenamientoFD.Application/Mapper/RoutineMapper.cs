@@ -12,25 +12,33 @@ namespace CentroEntrenamientoFD.Application.Mapper
     {
         public static ClientRoutine ToDomain(ClientRoutineDto dto)
         {
-            return new ClientRoutine(
-                dto.Date,
-                dto.ClientName,
-                dto.Objective,
-                dto.Mobility
-                    .Select(m => new MobilityExercise(m))
-                    .ToList(),
-                dto.Days
-                    .Select(d => new RoutineDay(
-                        d.Day,
-                        d.Exercises
-                            .Select(e => new Exercise(
-                                e.Name,
-                                e.Micros.Select(m => new Micro(m)).ToList()
-                            ))
-                            .ToList()
-                    ))
-                    .ToList()
-            );
+            var routine = new ClientRoutine(
+            dto.Date,
+            dto.ClientName,
+            dto.Objective
+        );
+
+            foreach (var mobility in dto.Mobility)
+            {
+                routine.AddMobilityExercise(mobility);
+            }
+
+            foreach (var dayDto in dto.Days)
+            {
+                var day = routine.AddRoutineDay(dayDto.Day);
+
+                foreach (var exerciseDto in dayDto.Exercises)
+                {
+                    var exercise = day.AddExercise(exerciseDto.Name);
+
+                    foreach (var micro in exerciseDto.Micros)
+                    {
+                        exercise.AddMicro(micro);
+                    }
+                }
+            }
+
+            return routine;
         }
     }
 }

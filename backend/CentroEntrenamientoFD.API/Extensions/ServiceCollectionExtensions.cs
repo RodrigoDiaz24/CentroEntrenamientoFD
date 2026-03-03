@@ -22,6 +22,9 @@ namespace CentroEntrenamientoFD.API.Extensions
             // Infrastructure - Auth
             services.AddScoped<IAuthService>(sp => new AuthService(jwtKey));
 
+            // Infrastructure - Repositorios de usuarios
+            services.AddScoped<IUserRepository, UserRepository>();
+
             return services;
         }
     }

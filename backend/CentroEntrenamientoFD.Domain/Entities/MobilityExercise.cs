@@ -8,7 +8,9 @@ namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class MobilityExercise
     {
-        public string Name { get; private set; }
+        public string Name { get; private set; } = null!;
+
+        private MobilityExercise() { }
 
         public MobilityExercise(string name)
         {
