@@ -1,7 +1,9 @@
-﻿using CentroEntrenamientoFD.Application.DTOs;
+﻿using CentroEntrenamientoFD.API.Swagger.Examples;
+using CentroEntrenamientoFD.Application.DTOs;
 using CentroEntrenamientoFD.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Filters;
 using System.Security.Claims;
 
 namespace CentroEntrenamientoFD.API.Controllers
@@ -25,6 +27,7 @@ namespace CentroEntrenamientoFD.API.Controllers
         /// </remarks>
         [Authorize]
         [HttpPost]
+        [SwaggerRequestExample(typeof(CreateExecutionDto), typeof(CreateExecutionDtoExample))]
         public async Task<IActionResult> Post([FromBody] CreateExecutionDto dto)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
