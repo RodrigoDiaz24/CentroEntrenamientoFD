@@ -17,6 +17,12 @@ namespace CentroEntrenamientoFD.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Registers a new training execution for an existing routine.
+        /// </summary>
+        /// <remarks>
+        /// Used when the athlete completes another training week.
+        /// </remarks>
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateExecutionDto dto)

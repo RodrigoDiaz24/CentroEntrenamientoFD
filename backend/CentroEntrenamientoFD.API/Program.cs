@@ -1,11 +1,17 @@
 ﻿using CentroEntrenamientoFD.API.Extensions;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
 using CentroEntrenamientoFD.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.Text;
+using Swashbuckle.AspNetCore.Filters;
+using CentroEntrenamientoFD.API.Swagger.Examples;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
 var jwtKey = "SUPER_SECRET_KEY_DE_DESARROLLO_12345";
 
@@ -40,7 +46,7 @@ builder.Services.AddSwaggerGen(options =>
         Scheme = "bearer",
         BearerFormat = "JWT",
         In = ParameterLocation.Header,
-        Description = "Bearer {token}"
+        Description = "Enter JWT token"
     });
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -57,7 +63,13 @@ builder.Services.AddSwaggerGen(options =>
             Array.Empty<string>()
         }
     });
+
+    options.IncludeXmlComments(xmlPath);
+
+    options.ExampleFilters();
 });
+
+builder.Services.AddSwaggerExamplesFromAssemblyOf<CreateExecutionDtoExample>();
 
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>

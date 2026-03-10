@@ -18,6 +18,17 @@ namespace CentroEntrenamientoFD.API.Controllers
             _service = service;
         }
 
+        /// <summary>
+        /// Creates a new routine template and the first execution week.
+        /// </summary>
+        /// <remarks>
+        /// The coach defines:
+        /// - routine structure
+        /// - exercises
+        /// - micro slots
+        /// 
+        /// This endpoint automatically creates the first execution.
+        /// </remarks>
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ClientRoutineDto dto)

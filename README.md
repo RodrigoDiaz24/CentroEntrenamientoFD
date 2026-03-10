@@ -6,11 +6,13 @@ Full-stack web application for managing training routines, microcycles and exerc
 
 ### Backend
 
-- .NET 8+
+- .NET 9
 - Clean Architecture
-- Entity Framework (Infrastructure layer)
+- Entity Framework Core
+- SQL Server
 - JWT Authentication
 - Google OAuth integration
+- Swagger API documentation
 
 ### Frontend
 
@@ -49,20 +51,112 @@ CentroEntrenamientoFD/
 The backend follows a Clean Architecture approach:
 
 - Domain
-    - Core Entities
-    - Business Rules
+Contains the core business model.
+Entities include: 
+    - User
+    - ClientRoutine
+    - RoutineDay
+    - Exercise
+    - MicroSlot
+    - RoutineExecution
+    - ExercisesExecution
+    - MicroExecution    
 - Application
+Responsible for: 
     - Use cases
     - DTOs
     - Interfaces
+    - Application services
 - Infrastructure
-    - Repository implementations
+Implements:
+    - Entity Framework repositories
     - Database access
     - External services
 - API
+Responsible for: 
     - Controllers
+    - Authentication
     - Dependency injection
-    - Authentication configuration
+    - Swagger configuration
+
+## Domain Model
+The system separates routine templates from training executions.
+
+### Routine Template
+Defines the structure of a training program.
+
+ClientRoutine
+ ├── RoutineDay
+ │     └── Exercise
+ │           └── MicroSlot
+ │
+ └── MobilityExercise
+
+### Training Execution
+Stores historical performance data.
+
+RoutineExecution
+ └── ExerciseExecution
+      └── MicroExecution
+
+This allows tracking athlete progression across multiple weeks.
+
+---
+## API Endpoints
+### Routine
+
+Create a routine template and initial execution.
+
+POST /api/routine
+
+Get routine details.
+
+GET /api/routine/{id}
+
+## Execution
+
+Register a new training session.
+
+POST /api/execution
+
+---
+## Authentication
+
+Authentication is handled using:
+
+- JWT tokens
+- BCrypt password hashing
+- Google OAuth login
+
+All protected endpoints require a valid JWT token.
+
+---
+## Swagger Documentation
+
+Swagger UI is available at:
+
+/swagger
+
+Swagger includes:
+
+- Endpoint documentation
+- Request examples
+- JWT authentication support
+
+---
+## Database
+
+The backend uses Entity Framework Core with SQL Server.
+
+Run migrations:
+
+   dotnet ef database update
+
+Create new migration:
+
+   dotnet ef migrations add MigrationName
+
+---
 
 ### Frontend
 The frontend is built using React with TypeScript and follows a component-based structure.
@@ -73,13 +167,6 @@ Main characteristics:
 - Protected routes
 - Token storage in localStorage
 - Modular styling using CSS Modules
-
-### Authentication
-- BCrypt password hashing
-- JWT token generation and validation
-- Google OAuth login
-- Secure token validation on backend
-- Audience validation for external tokens
 
 ---
 
@@ -120,34 +207,37 @@ http://localhost:5173
 - Google login
 - JWT-based authentication
 - Protected routes
-- Clean Architecture backend structure
+- Training routine creation
+- Exercise structure management
+- Training execution tracking
+- Clean Architecture backend
 
 ---
 
 ## Roadmap
 
-### Training Management
+### Training Features
 
+- Routine dashboard
 - Create routines
-- Add microcycles
-- Add exercises per day
-- Exercise categorization
-- Routine dashboard view
+- Execution history visualization
+- Athlete progress tracking
+- Exercise catalog
+- Weight progression analytics
 
 ### Security
 
 - Refresh token implementation
 - Token expiration handling
 - Role-based authorization
-- API rate limiting
+- Session management
 
 ### DevOps
 
 - Docker support
 - Production environment configuration
-- Backend deployment
-- Frontend deployment
 - CI/CD pipeline
+- Cloud deployment
 
 ---
 
