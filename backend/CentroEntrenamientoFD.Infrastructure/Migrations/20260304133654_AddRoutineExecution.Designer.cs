@@ -4,6 +4,7 @@ using CentroEntrenamientoFD.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CentroEntrenamientoFD.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260304133654_AddRoutineExecution")]
+    partial class AddRoutineExecution
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -172,7 +175,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
                     b.HasIndex("ClientRoutineId");
 
-                    b.ToTable("RoutineDays", (string)null);
+                    b.ToTable("RoutineDays");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.RoutineExecution", b =>
@@ -243,8 +246,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
                 {
                     b.HasOne("CentroEntrenamientoFD.Domain.Entities.RoutineDay", null)
                         .WithMany("Exercises")
-                        .HasForeignKey("RoutineDayId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("RoutineDayId");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.ExerciseExecution", b =>

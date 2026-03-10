@@ -10,18 +10,17 @@ namespace CentroEntrenamientoFD.Application.Mapper
 {
     public class RoutineMapper
     {
-        public static ClientRoutine ToDomain(ClientRoutineDto dto)
+        public static ClientRoutine ToDomain(ClientRoutineDto dto, Guid userId)
         {
             var routine = new ClientRoutine(
-            dto.Date,
-            dto.ClientName,
-            dto.Objective
-        );
+             userId,
+             dto.Date,
+             dto.ClientName,
+             dto.Objective
+            );
 
             foreach (var mobility in dto.Mobility)
-            {
                 routine.AddMobilityExercise(mobility);
-            }
 
             foreach (var dayDto in dto.Days)
             {
@@ -31,9 +30,12 @@ namespace CentroEntrenamientoFD.Application.Mapper
                 {
                     var exercise = day.AddExercise(exerciseDto.Name);
 
-                    foreach (var micro in exerciseDto.Micros)
+                    int order = 1;
+
+                    foreach (var _ in exerciseDto.Micros)
                     {
-                        exercise.AddMicro(micro);
+                        exercise.AddSlot(order);
+                        order++;
                     }
                 }
             }

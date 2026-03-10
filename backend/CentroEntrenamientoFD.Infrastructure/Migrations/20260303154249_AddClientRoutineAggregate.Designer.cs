@@ -4,6 +4,7 @@ using CentroEntrenamientoFD.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CentroEntrenamientoFD.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260303154249_AddClientRoutineAggregate")]
+    partial class AddClientRoutineAggregate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,8 +62,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("RoutineDayId")
                         .HasColumnType("uniqueidentifier");
@@ -69,55 +71,10 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
                     b.HasIndex("RoutineDayId");
 
-                    b.ToTable("Exercises", (string)null);
+                    b.ToTable("Exercise");
                 });
 
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.ExerciseExecution", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ExerciseId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("RoutineExecutionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoutineExecutionId");
-
-                    b.ToTable("ExerciseExecutions", (string)null);
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MicroExecution", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("ExerciseExecutionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Reps")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SlotOrder")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Weight")
-                        .HasPrecision(6, 2)
-                        .HasColumnType("decimal(6,2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ExerciseExecutionId");
-
-                    b.ToTable("MicroExecutions", (string)null);
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MicroSlot", b =>
+            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.Micro", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,14 +83,15 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
                     b.Property<Guid?>("ExerciseId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ExerciseId");
 
-                    b.ToTable("MicroSlots", (string)null);
+                    b.ToTable("Micro");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MobilityExercise", b =>
@@ -153,7 +111,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
                     b.HasIndex("ClientRoutineId");
 
-                    b.ToTable("MobilityExercises");
+                    b.ToTable("MobilityExercise");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.RoutineDay", b =>
@@ -172,30 +130,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
                     b.HasIndex("ClientRoutineId");
 
-                    b.ToTable("RoutineDays", (string)null);
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.RoutineExecution", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClientRoutineId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("WeekNumber")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RoutineExecutions", (string)null);
+                    b.ToTable("RoutineDay");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.User", b =>
@@ -243,32 +178,14 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
                 {
                     b.HasOne("CentroEntrenamientoFD.Domain.Entities.RoutineDay", null)
                         .WithMany("Exercises")
-                        .HasForeignKey("RoutineDayId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("RoutineDayId");
                 });
 
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.ExerciseExecution", b =>
-                {
-                    b.HasOne("CentroEntrenamientoFD.Domain.Entities.RoutineExecution", null)
-                        .WithMany("ExerciseExecutions")
-                        .HasForeignKey("RoutineExecutionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MicroExecution", b =>
-                {
-                    b.HasOne("CentroEntrenamientoFD.Domain.Entities.ExerciseExecution", null)
-                        .WithMany("MicroExecutions")
-                        .HasForeignKey("ExerciseExecutionId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MicroSlot", b =>
+            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.Micro", b =>
                 {
                     b.HasOne("CentroEntrenamientoFD.Domain.Entities.Exercise", null)
-                        .WithMany("Slots")
-                        .HasForeignKey("ExerciseId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany("Micros")
+                        .HasForeignKey("ExerciseId");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.MobilityExercise", b =>
@@ -296,22 +213,12 @@ namespace CentroEntrenamientoFD.Infrastructure.Migrations
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.Exercise", b =>
                 {
-                    b.Navigation("Slots");
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.ExerciseExecution", b =>
-                {
-                    b.Navigation("MicroExecutions");
+                    b.Navigation("Micros");
                 });
 
             modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.RoutineDay", b =>
                 {
                     b.Navigation("Exercises");
-                });
-
-            modelBuilder.Entity("CentroEntrenamientoFD.Domain.Entities.RoutineExecution", b =>
-                {
-                    b.Navigation("ExerciseExecutions");
                 });
 #pragma warning restore 612, 618
         }

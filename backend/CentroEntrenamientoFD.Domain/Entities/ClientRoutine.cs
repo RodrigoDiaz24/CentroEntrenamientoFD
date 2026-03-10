@@ -13,6 +13,9 @@ namespace CentroEntrenamientoFD.Domain.Entities
         private readonly List<RoutineDay> _days = new();
 
         public Guid Id { get; private set; }
+        public Guid UserId { get; private set; }
+
+
         public DateTime Date { get; private set; }
         public string ClientName { get; private set; }
         public string Objective { get; private set; }
@@ -22,9 +25,10 @@ namespace CentroEntrenamientoFD.Domain.Entities
 
         private ClientRoutine() { }
 
-        public ClientRoutine(DateTime date, string clientName, string objective)
+        public ClientRoutine(Guid userId, DateTime date, string clientName, string objective)
         {
             Id = Guid.NewGuid();
+            UserId = userId;
             Date = date;
             ClientName = clientName;
             Objective = objective;

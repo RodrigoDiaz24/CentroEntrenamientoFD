@@ -8,22 +8,24 @@ namespace CentroEntrenamientoFD.Domain.Entities
 {
     public class Exercise
     {
-        private readonly List<Micro> _micros = new();
+        private readonly List<MicroSlot> _slots = new();
 
+        public Guid Id { get; private set; }
         public string Name { get; private set; } = null!;
 
-        public IReadOnlyCollection<Micro> Micros => _micros;
+        public IReadOnlyCollection<MicroSlot> Slots => _slots;
 
         private Exercise() { }
 
         public Exercise(string name)
         {
+            Id = Guid.NewGuid();
             Name = name;
         }
 
-        public void AddMicro(string value)
+        public void AddSlot(int order)
         {
-            _micros.Add(new Micro(value));
+            _slots.Add(new MicroSlot(order));
         }
     }
 }

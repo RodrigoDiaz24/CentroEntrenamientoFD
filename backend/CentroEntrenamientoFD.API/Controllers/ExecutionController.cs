@@ -1,5 +1,4 @@
 ﻿using CentroEntrenamientoFD.Application.DTOs;
-using CentroEntrenamientoFD.Application.Mapper;
 using CentroEntrenamientoFD.Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -9,18 +8,18 @@ namespace CentroEntrenamientoFD.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RoutineController : ControllerBase
+    public class ExecutionController : ControllerBase
     {
         private readonly RoutineService _service;
 
-        public RoutineController(RoutineService service)
+        public ExecutionController(RoutineService service)
         {
             _service = service;
         }
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] ClientRoutineDto dto)
+        public async Task<IActionResult> Post([FromBody] CreateExecutionDto dto)
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -29,22 +28,9 @@ namespace CentroEntrenamientoFD.API.Controllers
 
             var userId = Guid.Parse(userIdClaim);
 
-            var routine = RoutineMapper.ToDomain(dto, userId);
-
-            await _service.CreateRoutineWithExecution(routine);
+            await _service.CreateExecution(dto, userId);
 
             return Ok();
-        }
-
-        [HttpGet("{id}")]
-        public IActionResult Get(Guid id)
-        {
-            var routine = _service.GetRoutine(id);
-
-            if (routine == null)
-                return NotFound();
-
-            return Ok(routine);
         }
     }
 }

@@ -1,24 +1,88 @@
-﻿using CentroEntrenamientoFD.Application.Repositories.Interfaces;
+﻿using CentroEntrenamientoFD.Application.DTOs;
+using CentroEntrenamientoFD.Application.Interfaces;
+using CentroEntrenamientoFD.Application.Repositories.Interfaces;
 using CentroEntrenamientoFD.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CentroEntrenamientoFD.Application.Services
 {
     public class RoutineService
     {
-        private readonly IRutinaRepository _repo;
+        private readonly IClientRoutineRepository _routineRepo;
+        private readonly IRoutineExecutionRepository _executionRepo;
 
-        public RoutineService(IRutinaRepository repo)
+        public RoutineService(IClientRoutineRepository routineRepo,
+        IRoutineExecutionRepository executionRepo)
         {
-            _repo = repo;
+            _routineRepo = routineRepo;
+            _executionRepo = executionRepo;
         }
 
-        public void CrearRutina(ClientRoutine rutina) => _repo.Agregar(rutina);
+        public async Task CreateRoutine(ClientRoutine routine)
+        {
+            _routineRepo.Add(routine);
+        }
 
-        public ClientRoutine ObtenerRutina(string nombre) => _repo.ObtenerPorNombre(nombre);
+        public async Task CreateRoutineWithExecution(ClientRoutine routine)
+        {
+            await _routineRepo.Add(routine);
+
+            var execution = new RoutineExecution(
+                routine.UserId,
+                routine.Id,
+                1,
+                DateTime.UtcNow
+            );
+
+            foreach (var day in routine.Days)
+            {
+                foreach (var exercise in day.Exercises)
+                {
+                    var exerciseExecution = execution.AddExerciseExecution(exercise.Id);
+
+                    foreach (var slot in exercise.Slots)
+                    {
+                        exerciseExecution.AddMicroExecution(
+                            slot.Order,
+                            0,
+                            0
+                        );
+                    }
+                }
+            }
+
+            await _executionRepo.Add(execution);
+        }
+
+        public async Task CreateExecution(CreateExecutionDto dto, Guid userId)
+        {
+            var execution = new RoutineExecution(
+              userId,
+              dto.RoutineId,
+              dto.WeekNumber,
+              dto.Date
+          );
+
+            foreach (var exerciseDto in dto.Exercises)
+            {
+                var exerciseExecution = execution.AddExerciseExecution(exerciseDto.ExerciseId);
+
+                foreach (var micro in exerciseDto.Micros)
+                {
+                    exerciseExecution.AddMicroExecution(
+                        micro.Slot,
+                        micro.Reps,
+                        micro.Weight
+                    );
+                }
+            }
+
+            await _executionRepo.Add(execution);
+        }
+
+        public ClientRoutine? GetRoutine(Guid id)
+        {
+            return _routineRepo.GetById(id);
+        }
     }
 }
+ 

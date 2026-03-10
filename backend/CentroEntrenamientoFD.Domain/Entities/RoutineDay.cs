@@ -10,6 +10,8 @@ namespace CentroEntrenamientoFD.Domain.Entities
     {
         private readonly List<Exercise> _exercises = new();
 
+        public Guid Id { get; private set; }
+
         public int DayNumber { get; private set; }
 
         public IReadOnlyCollection<Exercise> Exercises => _exercises;

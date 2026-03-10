@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CentroEntrenamientoFD.Application.DTOs
 {
-    public class ExerciseDto
+    public class MicroDto
     {
-        public string Name { get; set; }
-        public List<MicroDto> Micros { get; set; }
+        public int Slot { get; set; }
+        public int Reps { get; set; }
+        public decimal Weight { get; set; }
     }
 }

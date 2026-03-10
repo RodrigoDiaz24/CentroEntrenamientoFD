@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace CentroEntrenamientoFD.Application.Repositories.Interfaces
 {
-    public interface IRutinaRepository
+    public interface IClientRoutineRepository
     {
-        void Agregar(ClientRoutine rutina);
-        ClientRoutine ObtenerPorNombre(string nombre);
+        Task Add(ClientRoutine routine);
+
+        ClientRoutine? GetById(Guid id);
     }
 }

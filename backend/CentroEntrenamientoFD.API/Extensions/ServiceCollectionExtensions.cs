@@ -17,7 +17,8 @@ namespace CentroEntrenamientoFD.API.Extensions
             services.AddScoped<RoutineService>();
 
             // Infrastructure - Repositorios
-            services.AddScoped<IRutinaRepository, RutinaInMemoryRepository>();
+            services.AddScoped<IClientRoutineRepository, ClientRoutineRepository>();
+            services.AddScoped<IRoutineExecutionRepository, RoutineExecutionRepository>();
 
             // Infrastructure - Auth
             services.AddScoped<IAuthService>(sp => new AuthService(jwtKey));

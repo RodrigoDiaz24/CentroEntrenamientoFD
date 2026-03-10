@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace CentroEntrenamientoFD.Domain.Entities
 {
-    public class MobilityExercise
+    public class MicroSlot
     {
         public Guid Id { get; private set; }
-        public string Name { get; private set; } = null!;
+        public int Order { get; private set; }
 
-        private MobilityExercise() { }
+        private MicroSlot() { }
 
-        public MobilityExercise(string name)
+        public MicroSlot(int order)
         {
-            Name = name;
+            Id = Guid.NewGuid();
+            Order = order;
         }
     }
 }
