@@ -41,22 +41,24 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (window.google) {
-      window.google.accounts.id.initialize({
-        client_id: "793591185630-7faqin22nn50689mkoiutk962har944r.apps.googleusercontent.com",
-        callback: handleGoogleResponse,
-      });
 
-      window.google.accounts.id.renderButton(
-        document.getElementById("googleButton"),
-        {
-          theme: "outline",
-          size: "large",
-          width: 300,
-        }
-      );
+  if (!window.google) return
+
+  window.google.accounts.id.initialize({
+    client_id: "793591185630-7faqin22nn50689mkoiutk962har944r.apps.googleusercontent.com",
+    callback: handleGoogleResponse,
+  });
+
+  window.google.accounts.id.renderButton(
+    document.getElementById("googleButton"),
+    {
+      theme: "outline",
+      size: "large",
+      width: 300,
     }
-  }, []);
+  );
+
+}, []);
 
   return (
     <div className={styles.container}>

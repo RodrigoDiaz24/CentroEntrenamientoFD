@@ -1,4 +1,5 @@
 ﻿using CentroEntrenamientoFD.Application.Interfaces;
+using CentroEntrenamientoFD.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CentroEntrenamientoFD.API.Controllers
@@ -7,9 +8,9 @@ namespace CentroEntrenamientoFD.API.Controllers
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService _authService;
+        private readonly AuthService _authService;
 
-        public AuthController(IAuthService authService)
+        public AuthController(AuthService authService)
         {
             _authService = authService;
         }

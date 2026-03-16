@@ -1,8 +1,16 @@
-export default function Dashboard() {
-  return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Rutinas 💪</h1>
-      <p>Acá va la planilla de entrenamiento</p>
-    </div>
-  );
+import { useAuth } from "../auth/useAuth"
+import CoachDashboard from "../dashboard/CoachDashboard"
+import ClientDashboard from "../dashboard/ClientDashboard"
+
+function Dashboard() {
+
+  const { user } = useAuth()
+
+  if (user?.role === "Coach") {
+    return <CoachDashboard />
+  }
+
+  return <ClientDashboard />
 }
+
+export default Dashboard

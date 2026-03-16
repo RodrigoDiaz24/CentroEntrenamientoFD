@@ -1,7 +1,6 @@
 ﻿using CentroEntrenamientoFD.Application.Interfaces;
 using CentroEntrenamientoFD.Application.Repositories.Interfaces;
 using CentroEntrenamientoFD.Application.Services;
-using CentroEntrenamientoFD.Infrastructure.Auth;
 using CentroEntrenamientoFD.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,13 +14,11 @@ namespace CentroEntrenamientoFD.API.Extensions
         {
             // Application
             services.AddScoped<RoutineService>();
+            services.AddScoped<AuthService>();
 
             // Infrastructure - Repositorios
             services.AddScoped<IClientRoutineRepository, ClientRoutineRepository>();
             services.AddScoped<IRoutineExecutionRepository, RoutineExecutionRepository>();
-
-            // Infrastructure - Auth
-            services.AddScoped<IAuthService>(sp => new AuthService(jwtKey));
 
             // Infrastructure - Repositorios de usuarios
             services.AddScoped<IUserRepository, UserRepository>();
