@@ -33,7 +33,7 @@ namespace CentroEntrenamientoFD.Infrastructure.Repositories
         {
             var max = await _context.RoutineExecutions
                 .Where(e => e.ClientRoutineId == routineId && e.UserId == userId)
-                .Select(e => (int?)e.WeekNumber) // 👈 nullable
+                .Select(e => (int?)e.WeekNumber)
                 .MaxAsync();
 
             return max ?? 0;

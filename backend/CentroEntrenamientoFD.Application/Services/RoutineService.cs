@@ -79,7 +79,7 @@ namespace CentroEntrenamientoFD.Application.Services
             {
                 var exerciseExecution = execution.AddExerciseExecution(exerciseDto.ExerciseId);
 
-                var micro = exerciseDto.Micros.First(); // 👈 solo 1 micro por ejecución
+                var micro = exerciseDto.Micros.First();
 
                 exerciseExecution.AddMicroExecution(
                     nextSlot,
