@@ -44,7 +44,7 @@ namespace CentroEntrenamientoFD.Application.Services
 
                     var exerciseExecution = execution.AddExerciseExecution(exercise.Id);
 
-                    var micro = exerciseDto.Micros.First(); // 👈 Micro 1
+                    var micro = exerciseDto.Micros.First();
 
                     exerciseExecution.AddMicroExecution(
                         1,
