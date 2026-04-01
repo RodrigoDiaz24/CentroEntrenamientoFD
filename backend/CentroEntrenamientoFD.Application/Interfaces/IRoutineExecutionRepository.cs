@@ -10,5 +10,7 @@ namespace CentroEntrenamientoFD.Application.Interfaces
     public interface IRoutineExecutionRepository
     {
         Task Add(RoutineExecution execution);
+        Task<List<RoutineExecution>> GetByRoutineIdAndUserId(Guid routineId, Guid userId);
+        Task<int> GetMaxMicroNumber(Guid routineId, Guid userId);
     }
 }

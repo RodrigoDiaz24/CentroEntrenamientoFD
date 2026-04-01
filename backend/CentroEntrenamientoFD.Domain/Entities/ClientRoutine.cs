@@ -20,8 +20,8 @@ namespace CentroEntrenamientoFD.Domain.Entities
         public string ClientName { get; private set; }
         public string Objective { get; private set; }
 
-        public IReadOnlyCollection<MobilityExercise> Mobility { get; private set; }
-        public IReadOnlyCollection<RoutineDay> Days { get; private set; }
+        public IReadOnlyCollection<MobilityExercise> Mobility => _mobility;
+        public IReadOnlyCollection<RoutineDay> Days => _days;
 
         private ClientRoutine() { }
 

@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
 
-var jwtKey = "SUPER_SECRET_KEY_DE_DESARROLLO_12345";
+var jwtKey = builder.Configuration["Jwt:Key"];
 
 builder.Services.AddCors(options =>
 {

@@ -42,7 +42,7 @@ namespace CentroEntrenamientoFD.API.Controllers
 
             var routine = RoutineMapper.ToDomain(dto, userId);
 
-            await _service.CreateRoutineWithExecution(routine);
+            await _service.CreateRoutineWithExecution(routine, dto);
 
             return Ok();
         }

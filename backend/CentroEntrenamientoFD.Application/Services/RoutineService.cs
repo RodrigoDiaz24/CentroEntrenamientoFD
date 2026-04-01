@@ -22,7 +22,7 @@ namespace CentroEntrenamientoFD.Application.Services
             _routineRepo.Add(routine);
         }
 
-        public async Task CreateRoutineWithExecution(ClientRoutine routine)
+        public async Task CreateRoutineWithExecution(ClientRoutine routine, ClientRoutineDto dto)
         {
             await _routineRepo.Add(routine);
 
@@ -35,18 +35,22 @@ namespace CentroEntrenamientoFD.Application.Services
 
             foreach (var day in routine.Days)
             {
+                var dayDto = dto.Days.First(d => d.Day == day.DayNumber);
+
                 foreach (var exercise in day.Exercises)
                 {
+                    var exerciseDto = dayDto.Exercises
+                        .First(e => e.Name == exercise.Name);
+
                     var exerciseExecution = execution.AddExerciseExecution(exercise.Id);
 
-                    foreach (var slot in exercise.Slots)
-                    {
-                        exerciseExecution.AddMicroExecution(
-                            slot.Order,
-                            0,
-                            0
-                        );
-                    }
+                    var micro = exerciseDto.Micros.First(); // 👈 Micro 1
+
+                    exerciseExecution.AddMicroExecution(
+                        1,
+                        micro.Reps,
+                        micro.Weight
+                    );
                 }
             }
 
@@ -55,25 +59,33 @@ namespace CentroEntrenamientoFD.Application.Services
 
         public async Task CreateExecution(CreateExecutionDto dto, Guid userId)
         {
+            var existingExecutions = await _executionRepo
+                .GetByRoutineIdAndUserId(dto.RoutineId, userId);
+
+            var max = await _executionRepo.GetMaxMicroNumber(dto.RoutineId, userId);
+            int nextSlot = max + 1;
+
+            if (nextSlot > 4)
+                throw new Exception("La rutina ya tiene los 4 micros completos");
+
             var execution = new RoutineExecution(
-              userId,
-              dto.RoutineId,
-              dto.WeekNumber,
-              dto.Date
-          );
+                userId,
+                dto.RoutineId,
+                nextSlot,
+                dto.Date
+            );
 
             foreach (var exerciseDto in dto.Exercises)
             {
                 var exerciseExecution = execution.AddExerciseExecution(exerciseDto.ExerciseId);
 
-                foreach (var micro in exerciseDto.Micros)
-                {
-                    exerciseExecution.AddMicroExecution(
-                        micro.Slot,
-                        micro.Reps,
-                        micro.Weight
-                    );
-                }
+                var micro = exerciseDto.Micros.First(); // 👈 solo 1 micro por ejecución
+
+                exerciseExecution.AddMicroExecution(
+                    nextSlot,
+                    micro.Reps,
+                    micro.Weight
+                );
             }
 
             await _executionRepo.Add(execution);

@@ -12,6 +12,7 @@ namespace CentroEntrenamientoFD.Domain.Entities
 
         public Guid Id { get; private set; }
         public Guid ExerciseId { get; private set; }
+        public Guid RoutineExecutionId { get; private set; }
 
         public IReadOnlyCollection<MicroExecution> MicroExecutions => _microExecutions;
 
